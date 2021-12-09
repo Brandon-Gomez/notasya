@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if (@$_SESSION["autentificado"]=="1") {
+        header("location:app.php");
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <!-- saved from url=(0043)http://localhost/notarapida/public/register -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -24,7 +31,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="http://localhost/notarapida/public">
+                <a class="navbar-brand" href="app.php">
                     NotasYa
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,10 +70,10 @@
                     <form method="POST" action="control.php">
                         <input type="hidden" name="_token" value="N8GoLSNcDTaOX7dPsLPRq8MI2P5FawFL2kpOVGLI">
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">Nombre</label>
+                            <label for="nombre" class="col-md-4 col-form-label text-md-right">Nombre</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control " name="name" value="" required="" autocomplete="name" autofocus="">
+                                <input id="nombre" type="text" class="form-control " name="nombre" value="" required="" autocomplete="name" autofocus="">
 
                                                             </div>
                         </div>
@@ -89,14 +96,6 @@
                                                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirmar Contraseña</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required="" autocomplete="new-password">
-                            </div>
-                        </div>
-
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -114,4 +113,4 @@
     </div>
 
 
-</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
+</body></html>

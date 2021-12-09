@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if (@$_SESSION["autentificado"]=="1") {
+        header("location:app.php");
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <!-- saved from url=(0037)http://localhost/notasya/public/login -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -23,7 +31,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="http://localhost/notasya/public">
+                <a class="navbar-brand" href="app.php">
                     NotasYa
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +67,7 @@
                 <div class="card-header">Iniciar sesion</div>
 
                 <div class="card-body">
-                    <form method="POST" action="http://localhost/notasya/public/login" abineguid="58E8CFDC73654195831D874795B439B6">
+                    <form method="POST" action="control.php" abineguid="58E8CFDC73654195831D874795B439B6">
                         <input type="hidden" name="_token" value="jKZNt9cqMUX71kmgEkORzzkwgCbv1BFWAKGkThJs">
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
