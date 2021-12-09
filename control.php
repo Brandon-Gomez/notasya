@@ -4,7 +4,7 @@
     $con = new mysqli('localhost', 'root','','bd_notas');
 
     $usuario = $_POST['email'];
-    $password = $_POST['password'];
+    $password = $con->real_escape_string($_POST['password']);
 
     $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario' AND password = '$password'";
 
@@ -24,10 +24,6 @@
     }else {
         header("location:register.php?error=si");
     }
-
-
-
-
 
 
 ?>

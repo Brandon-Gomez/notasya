@@ -48,7 +48,7 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                                                                                     <li class="nav-item">
-                                    <a class="nav-link" href="login.php">Iniciar sesion</a>
+                                    <a class="nav-link">Iniciar sesión</a>
                                 </li>
                             
                                                             <li class="nav-item">

@@ -48,11 +48,11 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                                                                                     <li class="nav-item">
-                                    <a class="nav-link" href="login.php">Iniciar sesion</a>
+                                    <a class="nav-link" href="login.php">Iniciar sesión</a>
                                 </li>
                             
                                                             <li class="nav-item">
-                                    <a class="nav-link" href="register.php">Registrar</a>
+                                    <a class="nav-link">Registrarse</a>
                                 </li>
                                                                         </ul>
                 </div>
@@ -67,31 +67,30 @@
                 <div class="card-header">Registrarme</div>
 
                 <div class="card-body">
-                    <form method="POST" action="control.php">
-                        <input type="hidden" name="_token" value="N8GoLSNcDTaOX7dPsLPRq8MI2P5FawFL2kpOVGLI">
+                    <form method="POST" action="control_registro.php">
                         <div class="row mb-3">
-                            <label for="nombre" class="col-md-4 col-form-label text-md-right">Nombre</label>
+                            <label for="nombre_r" class="col-md-4 col-form-label text-md-right">Nombre</label>
 
                             <div class="col-md-6">
-                                <input id="nombre" type="text" class="form-control " name="nombre" value="" required="" autocomplete="name" autofocus="">
+                                <input id="nombre_r" type="text" class="form-control " name="nombre_r" value="" required="" autocomplete="name" autofocus="">
 
                                                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
+                            <label for="email_r" class="col-md-4 col-form-label text-md-right">Email</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control " name="email" value="" required="" autocomplete="email">
+                                <input id="email_r" type="email" class="form-control " name="email_r" value="" required="" autocomplete="email">
 
                                                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">Contraseña</label>
+                            <label for="password_r" class="col-md-4 col-form-label text-md-right">Contraseña</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control " name="password" required="" autocomplete="new-password">
+                                <input id="password_r" type="password" class="form-control " name="password_r" required="" autocomplete="new-password">
 
                                                             </div>
                         </div>
