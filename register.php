@@ -1,5 +1,8 @@
 <?php
+    @$usuario=$_POST['email'];
+    @$contraseña=$_POST['password'];
     session_start();
+    $_SESSION['usuario']=$usuario;
     if (@$_SESSION["autentificado"]=="1") {
         header("location:app.php");
         exit();
@@ -82,7 +85,9 @@
 
                             <div class="col-md-6">
                                 <input type="email" class="form-control " name="email" value="" required="" autocomplete="email">
-                                                            </div>
+                                
+            
+                                </div>
                         </div>
 
                         <div class="row mb-3">
@@ -110,5 +115,5 @@
         </main>
     </div>
 
-
-</body></html>
+</body>
+</html>
