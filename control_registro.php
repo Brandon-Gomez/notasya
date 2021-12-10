@@ -3,17 +3,31 @@
 require 'conexion.php';
 
 
-if (isset($_POST['register'])) {
-    if (strlen($_POST['nombre']) >= 1 && strlen($_POST['email']) >=1 ) {
+if (isset($_POST['register'])) {    
+    if (strlen($_POST['email']) >= 1 && strlen($_POST['password']) >=1 ) {
     $nombre = trim($_POST['nombre']);
     $usuario = trim($_POST['email']);
     $password = trim($_POST['password']);
     $rol_id = "2";
     //registrar nuevo
     $consulta = "INSERT INTO usuarios(nombre, usuario, password, rol_id) VALUES ('$nombre','$usuario','$password','$rol_id')";
-    
-    header("location:control.php");
-    die();
+    $resultado = mysqli_query($con,$consulta);
+
+    //Entrar a usuario
+    $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario' AND password = '$password'";
+    $res = $con->query($sql);
+         if($res->num_rows>0){
+        
+        $user = $res->fetch_assoc();
+
+        $_SESSION["autentificado"] = "1";
+        $_SESSION["nombre"] = $_POST['nombre'];
+        $_SESSION["usuario"] = $_POST['email'];
+        $_SESSION["password"]= $_POST['password'];
+        header("location:app.php");
+    }else {
+        header("location:register.php?error=si");
+    }
      }
 }
 

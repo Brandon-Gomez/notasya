@@ -1,8 +1,5 @@
 <?php
-    @$usuario=$_POST['email'];
-    @$contraseña=$_POST['password'];
-    session_start();
-    $_SESSION['usuario']=$usuario;
+session_start();
     if (@$_SESSION["autentificado"]=="1") {
         header("location:app.php");
         exit();
