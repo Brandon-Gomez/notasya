@@ -1,16 +1,12 @@
 <?php
-    session_start();
-
-    $con = new mysqli('localhost', 'root','','bd_notas');
-
+    require "conexion.php";
     $usuario = $_POST['email'];
     $password = $con->real_escape_string($_POST['password']);
+    $errors = array();
 
     $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario' AND password = '$password'";
 
     $res = $con->query($sql);
-
-    echo $res->num_rows;
 
     if($res->num_rows>0){
         

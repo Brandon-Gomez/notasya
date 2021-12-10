@@ -69,35 +69,34 @@
                 <div class="card-body">
                     <form method="POST" action="control_registro.php">
                         <div class="row mb-3">
-                            <label for="nombre_r" class="col-md-4 col-form-label text-md-right">Nombre</label>
+                            <label for="nombre" class="col-md-4 col-form-label text-md-right">Nombre</label>
 
                             <div class="col-md-6">
-                                <input id="nombre_r" type="text" class="form-control " name="nombre_r" value="" required="" autocomplete="name" autofocus="">
+                                <input type="text" class="form-control " name="nombre" value="" required="" autocomplete="name" autofocus="">
 
                                                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="email_r" class="col-md-4 col-form-label text-md-right">Email</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
 
                             <div class="col-md-6">
-                                <input id="email_r" type="email" class="form-control " name="email_r" value="" required="" autocomplete="email">
-
+                                <input type="email" class="form-control " name="email" value="" required="" autocomplete="email">
                                                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password_r" class="col-md-4 col-form-label text-md-right">Contraseña</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">Contraseña</label>
 
                             <div class="col-md-6">
-                                <input id="password_r" type="password" class="form-control " name="password_r" required="" autocomplete="new-password">
+                                <input type="password" class="form-control " name="password" required="" autocomplete="new-password">
 
                                                             </div>
                         </div>
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" name="register" class="btn btn-primary">
                                     Registrarse
                                 </button>
                             </div>
