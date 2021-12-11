@@ -27,7 +27,7 @@
     <!-- Styles -->
     <link href="css/app.css" rel="stylesheet">
 </head>
-<body data-new-gr-c-s-check-loaded="14.1041.0" data-gr-ext-installed="">
+<body style="font-family: 'Architects Daughter', cursive;">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
