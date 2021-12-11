@@ -14,22 +14,29 @@ if (isset($_POST['register'])) {
     $resultado = mysqli_query($con,$consulta);
 
     //Entrar a usuario
-    $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario' AND password = '$password'";
-    $res = $con->query($sql);
-         if($res->num_rows>0){
-        
-        $user = $res->fetch_assoc();
 
-        $_SESSION["autentificado"] = "1";
-        $_SESSION["nombre"] = $_POST['nombre'];
-        $_SESSION["usuario"] = $_POST['email'];
-        $_SESSION["password"]= $_POST['password'];
-        header("location:app.php");
-    }else {
-        header("location:register.php?error=si");
+    if ($resultado) {
+        header("location:login.php");   
     }
-     }
-}
+    else {
+            header("location:register.php");
+        }
+//     $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario' AND password = '$password'";
+//     $res = $con->query($sql);
+//          if($res->num_rows>0){
+        
+//         $user = $res->fetch_assoc();
+
+//         $_SESSION["autentificado"] = "1";
+//         $_SESSION["nombre"] = $_POST['nombre'];
+//         $_SESSION["usuario"] = $_POST['email'];
+//         $_SESSION["password"]= $_POST['password'];
+//         header("location:app.php");
+//     }else {
+//         header("location:register.php?error=si");
+//    }
+    }
+ }
 
 
 ?>
