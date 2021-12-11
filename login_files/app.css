@@ -49,6 +49,7 @@
   --bs-body-color-rgb: 33, 37, 41;
   --bs-body-bg-rgb: 248, 250, 252;
   --bs-font-sans-serif: "Nunito", sans-serif;
+  --bs-font-family: 'Architects Daughter', cursive;
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --bs-body-font-family: var(--bs-font-sans-serif);
@@ -57,6 +58,7 @@
   --bs-body-line-height: 1.6;
   --bs-body-color: #212529;
   --bs-body-bg: #f8fafc;
+
 }
 
 *,

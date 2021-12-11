@@ -15,7 +15,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="jKZNt9cqMUX71kmgEkORzzkwgCbv1BFWAKGkThJs">
 
-    <title>Laravel</title>
+    <title>NotasYa</title>
 
     <!-- Scripts -->
     <script src="login_files/app.js.descarga" defer=""></script>
@@ -31,7 +31,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="app.php">
+                <a class="navbar-brand" href="index.php">
                     NotasYa
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

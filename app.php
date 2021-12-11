@@ -20,13 +20,15 @@
     <!-- Styles -->
     <link href="css/app.css" rel="stylesheet">
 </head>
-<body data-new-gr-c-s-check-loaded="14.1041.0" data-gr-ext-installed="">
+<body style="font-family: 'Architects Daughter', cursive;">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="app.php">
+            <a class="navbar-brand" href="app.php">
                     NotasYa
-                </a>
+            </a>
+            <a class="nav-link" href="">Mis notas</a>
+            </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

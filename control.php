@@ -13,6 +13,7 @@
         $usuario = $res->fetch_assoc();
 
         $_SESSION["autentificado"] = "1";
+        $_SESSION["id"] = $usuario['id'];
         $_SESSION["nombre"] = $usuario['nombre'];
         $_SESSION["email"] = $usuario['email'];
 

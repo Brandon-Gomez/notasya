@@ -19,7 +19,11 @@ if (isset($_POST['register'])) {
         header("location:login.php");   
     }
     else {
-            header("location:register.php");
+        echo'<script type="text/javascript">
+        alert("Este email esta en uso");
+        window.location.href="register.php";
+        </script>';  
+            
         }
 //     $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario' AND password = '$password'";
 //     $res = $con->query($sql);
