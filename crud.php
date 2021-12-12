@@ -1,3 +1,4 @@
+<?php require ("seguridad.php") ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -264,7 +265,40 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <div class="container">
+            <a class="navbar-brand" href="index.php">
+                    NotasYa
+            </a>
+            <a class="nav-link" href="app.php">Tablero</a>
+            </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav me-auto">
+
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ms-auto">
+                        <!-- Authentication Links -->
+                        <li class="nav-item">
+                        <a class="nav-link"> <?php echo $_SESSION["nombre"] ?> </a>
+
+                        </li>
+                            
+                        <li class="nav-item">
+                            <a class="nav-link" href="salir.php">Salir</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 <div class="container-xl">
+    
 	<div class="table-responsive">
 		<div class="table-wrapper">
 			<div class="table-title">
@@ -287,10 +321,10 @@ $(document).ready(function(){
 								<label for="selectAll"></label>
 							</span>
 						</th>
-						<th>Name</th>
-						<th>Email</th>
-						<th>Address</th>
-						<th>Phone</th>
+						<th>Id</th>
+						<th>Nombre</th>
+						<th>Usuario</th>
+						<th>Nota</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
