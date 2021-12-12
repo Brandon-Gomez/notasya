@@ -20,37 +20,29 @@
                 <a class="navbar-brand" href="index.php">
                     NotasYa
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
+              
+    
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
-                                                                                    <li class="nav-item">
+                            <li class="nav-item">
                                     <a class="nav-link">Iniciar sesión</a>
-                                </li>
+                            </li>
                             
-                                                            <li class="nav-item">
+                            <li class="nav-item">
                                     <a class="nav-link" href="register.php">Registrarse</a>
-                                </li>
-                                                                        </ul>
+                            </li>
+                    </ul>
                 </div>
             </div>
         </nav>
 
         <main class="py-4">
-            <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                
+        <div class="col-lg-7 d-none d-lg-block" style="background-color: red;">
+        
+
+
+        </div>
                         </div>
                     </form>
                 </div>
