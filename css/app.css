@@ -4538,7 +4538,8 @@ textarea.form-control-lg {
 
 .card-body {
   flex: 1 1 auto;
-  padding: 1rem 1rem;
+  padding: 2rem 2rem;
+  background-image: url('/img/tablero.jpg')!important;
 }
 
 .card-title {
