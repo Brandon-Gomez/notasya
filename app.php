@@ -24,7 +24,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-            <a class="navbar-brand" href="app.php">
+            <a class="navbar-brand" href="index.php">
                     NotasYa
             </a>
             <a class="nav-link" href="">Mis notas</a>
@@ -56,13 +56,13 @@
         </nav>
 
         <main class="py-4">
-            <div class="container">
+            <div class="container" style="max-width: 1820px;">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Iniciar sesion</div>
+                <div class="card-header" style="text-align: center;">Tu tablero</div>
 
-                <div class="card-body">
+                <div class="card-body" >
                         <div class="row mb-3">
                              <h1 class="col-md-4 col-form-label text-md-right">Bienvenido a NotasYa</h1>
 
