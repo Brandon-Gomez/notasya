@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    @session_start();
 
     $con = new Mysqli('localhost','root','','bd_notas');
 

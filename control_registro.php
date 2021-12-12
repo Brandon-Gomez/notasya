@@ -7,7 +7,7 @@ if (isset($_POST['register'])) {
     if (strlen($_POST['email']) >= 1 && strlen($_POST['password']) >=1 ) {
     $nombre = trim($_POST['nombre']);
     $usuario = trim($_POST['email']);
-    $password = md5($_POST['password']);
+    $password = trim($_POST['password']);
     $rol_id = "2";
     //registrar nuevo
     $consulta = "INSERT INTO usuarios(nombre, usuario, password, rol_id) VALUES ('$nombre','$usuario','$password','$rol_id')";
