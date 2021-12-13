@@ -13,7 +13,7 @@ include("conexion.php");
     <!-- CSRF Token -->
     <meta name="csrf-token" content="jKZNt9cqMUX71kmgEkORzzkwgCbv1BFWAKGkThJs">
 
-    <title>Laravel</title>
+    <title>NotasYa</title>
 
     <!-- Scripts -->
     <script src="login_files/app.js.descarga" defer=""></script>
@@ -72,13 +72,41 @@ include("conexion.php");
                     $res = $con->query ($sql);
 
                     while ($nota= $res->fetch_assoc()){
-                        echo "<ul id='nota-ul'>
+
+                      if ($nota['prioridad']>1) {
+
+                        if ($nota['prioridad']==2) {
+                          echo "<ul id='nota-ul'>
+                          <li id='nota-li'>
+                          
+                            <a href='#' id='nota-a' style='background-color:#0d6efd'>
+                              <p id='nota-p'>{$nota['texto']}</p>
+                            </a>
+                          </li>";
+                        } if ($nota['prioridad']==3) {
+                          echo "<ul id='nota-ul'>
                         <li id='nota-li'>
-                          <a href='#' id='nota-a'>
+                        
+                          <a href='#' id='nota-a' style='background-color:#df293b'>
                             <p id='nota-p'>{$nota['texto']}</p>
                           </a>
                         </li>";
+                        }
+
+                      }
+                      else {
+                        echo "<ul id='nota-ul'>
+                      <li id='nota-li'>
+                      
+                        <a href='#' id='nota-a' style='background-color:#ffc'>
+                          <p id='nota-p'>{$nota['texto']}</p>
+                        </a>
+                      </li>";
+                      }
+                        
+                        
                     }
+                    
 
 
                 ?>
@@ -103,13 +131,12 @@ include("conexion.php");
   list-style:none;
 }
 #nota-ul{
-  overflow:hidden;
   padding:3em;
 }
 #nota-ul #nota-li #nota-a{
   text-decoration:none;
   color:#000;
-  background:#ffc;
+  /* background:#ffc; */
   display:block;
   height:13em;
   width:13em;

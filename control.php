@@ -2,7 +2,6 @@
     require "conexion.php";
     $usuario = $_POST['email'];
     $password = $con->real_escape_string($_POST['password']);
-    $errors = array();
 
     $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario' AND password = '$password'";
 
@@ -15,7 +14,8 @@
         $_SESSION["autentificado"] = "1";
         $_SESSION["id"] = $usuario['id'];
         $_SESSION["nombre"] = $usuario['nombre'];
-        $_SESSION["email"] = $usuario['email'];
+        $_SESSION["email"] = $usuario['usuario'];
+        $_SESSION["rol_id"] = $usuario['rol_id'];
 
         header("location:app.php");
     }else {
