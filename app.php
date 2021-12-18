@@ -31,7 +31,7 @@ include("conexion.php");
             <a class="navbar-brand" href="index.php">
                     NotasYa
             </a>
-            <a class="nav-link" href="crud.php">Mis notas</a>
+            <a class="nav-link" href="crud.php">Editar notas</a>
             </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -63,11 +63,11 @@ include("conexion.php");
             <div class="container" style="max-width: 1820px;">
     <div class="row justify-content-center">
         <div class="col-md-8" style="margin-top: 2rem;" >
-            <div class="card"style="background-image: url('img/tablero.jpg')!important;">
+            <div class="card"style="background-image: url('img/tablero.jpg')!important;min-height: 420px!important;
+">
                 <div class="card-header" style="text-align: center; background-color:whitesmoke;">Tu tablero</div>
 
                 <?php
-
                     $sql = "SELECT * FROM notas WHERE usuario_id = ". $_SESSION['id'];
                     $res = $con->query ($sql);
 
@@ -92,7 +92,6 @@ include("conexion.php");
                           </a>
                         </li>";
                         }
-
                       }
                       else {
                         echo "<ul id='nota-ul'>
@@ -102,14 +101,8 @@ include("conexion.php");
                           <p id='nota-p'>{$nota['texto']}</p>
                         </a>
                       </li>";
-                      }
-                        
-                        
-                    }
-                    
-
-
-                ?>
+                      }                    
+                    }?>
                 <div class="card-body" >
                        
                 </div>
