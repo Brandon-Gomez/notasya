@@ -338,9 +338,10 @@ $(document).ready(function(){
 							<th><?php echo $row['id']?> </th>
 							<th><?php echo $row['texto']?></th>
 							<th><?php echo $row['prioridad']?></th>
-							<th><a href="#editEmployeeModal?id=<?php echo $row['id'];?>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-							<a href="eliminar.php?" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></th>
-						</tr><?php 
+							<th> <button type="button" class="btn btn-success editbtn">Editar</button></th>
+							<!-- <th><a href="#editEmployeeModal" id="edit_" class="edit" name="editbtn" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a> -->
+							<!-- <a href="eliminar.php?" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></th> -->
+						</tr><?php
 					};?>
 				
 				</tbody>
@@ -398,14 +399,15 @@ $(document).ready(function(){
 					<h4 class="modal-title">Editar nota</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
-				<div class="modal-body">					
+				<div class="modal-body">
+					<input type="hidden" name="update_id" id="update_id">				
 					<div class="form-group">
 						<label>Texto</label>
-						<input type="text" class="form-control" name="texto" required>
+						<input type="text" class="form-control" name="texto" id="texto" required>
 					</div>
 					<div class="form-group">
 						<label>Prioridad</label>
-						<input type="number" class="form-control" name="prioridad" required>
+						<input type="number" class="form-control" name="prioridad" id="prioridad" required>
 					</div>
 									
 				</div>
@@ -438,5 +440,25 @@ $(document).ready(function(){
 		</div>
 	</div>
 </div> -->
+<script>
+	$(document).ready (function(){
+		$('.editbtn').on('click',function(){
+
+			$('#editEmployeeModal').modal('show');
+
+				$tr =$(this).closest('tr');
+				
+				var datos = $tr.children("th").map(function(){
+					return $(this).text();
+				}).get();
+
+				console.log(datos);
+
+				$('#texto').val(datos[1]);
+				$('#prioridad').val(datos[2]);
+				
+		});	
+	});
+</script>
 </body>
 </html>
