@@ -63,8 +63,7 @@ include("conexion.php");
             <div class="container" style="max-width: 1820px;">
     <div class="row justify-content-center">
         <div class="col-md-8" style="margin-top: 2rem;" >
-            <div class="card"style="background-image: url('img/tablero.jpg')!important;min-height: 420px!important;
-">
+            <div class="card"style="background-image: url('img/tablero.jpg')!important;min-height: 420px!important;">
                 <div class="card-header" style="text-align: center; background-color:whitesmoke;">Tu tablero</div>
 
                 <?php
