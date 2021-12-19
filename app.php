@@ -1,8 +1,6 @@
 <?php 
 include("seguridad.php");
-include("conexion.php");
-
-    
+include("conexion.php");    
 ?>
 <!DOCTYPE html>
 <!-- saved from url=(0037)http://localhost/notasya/public/login -->
