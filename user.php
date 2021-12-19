@@ -347,9 +347,14 @@ while ($usuario= $res->fetch_assoc()){
 
                             <!-- Project Card Example -->
                             <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Usuarios</h6>
-                                </div>
+                            <div class="card-header py-3" style="display: flex;justify-content: space-between;">
+
+                                    
+                                    <h6 class="m-0 font-weight-bold text-primary" style="align-self:center">Usuarios</h6> <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Crear usuario</span></a>
+                                </div><div class="col-sm-6">
+						
+					</div>
+                                
 
                                 <table class="table table-striped table-hover">
 				<thead>
@@ -442,6 +447,44 @@ while ($usuario= $res->fetch_assoc()){
 				<div class="modal-footer">
 					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
 					<input type="submit" class="btn btn-danger" value="Eliminar" name="deleteuser">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- AGREGAR -->
+<div id="addEmployeeModal" class="modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form action="insertar_user.php" method="POST">
+				<div class="modal-header">						
+					<h4 class="modal-title">Agregar usuario</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">					
+					<div class="form-group">
+						<label>Nombre</label>
+						<input type="text" class="form-control" name="nombre_add" id="Nombre_add" placeholder="Ingrese el nombre" required autofocus="" >
+					</div>
+					<div class="form-group">
+						<label>Email</label>
+						<input type="email" class="form-control" name="email_add" id="email_add" placeholder="Ingrese correo" required>
+					</div>
+                    <div class="form-group">
+						<label>Contraseña</label>
+						<input type="number" class="form-control" name="contraseña_add" id="Contraseña_add"  placeholder="Ingrese contraseña" required>
+					</div>
+                    <div class="form-group">
+						<label>Rol id</label>
+						<input type="number" max="3" class="form-control" name="rol_add" id="rol_add" placeholder="Ingrese el rol" required>
+					</div>
+                    
+					
+									
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+					<input type="submit" class="btn btn-success" value="Agregar" name="adduser">
 				</div>
 			</form>
 		</div>

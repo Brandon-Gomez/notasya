@@ -377,6 +377,7 @@ while ($usuario= $res->fetch_assoc()){
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Usuarios</h6>
                                 </div>
+                                
 
                                 <table class="table table-striped table-hover">
 				<thead>
