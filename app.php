@@ -1,6 +1,16 @@
 <?php 
 include("seguridad.php");
-include("conexion.php");    
+include("conexion.php");
+//USUARIO ADMIN?    
+$sql = "SELECT * FROM usuarios WHERE rol_id = ". $_SESSION['rol_id'];
+$res = $con->query ($sql);
+
+while ($usuario= $res->fetch_assoc()){
+  if ($usuario['rol_id']==1) {
+    header("location:dashboard.php");
+  }
+}
+
 ?>
 <!DOCTYPE html>
 <!-- saved from url=(0037)http://localhost/notasya/public/login -->
