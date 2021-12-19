@@ -10,7 +10,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Bootstrap CRUD Data Table for Database with Modal Form</title>
+<title>Mis notas</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -311,7 +311,7 @@ $(document).ready(function(){
 				<div class="row">
 					<div class="col-sm-6">
     
-						<h2>Edita tus notas</h2>
+						<h2>Mis notas</h2>
 					</div>
 					<div class="col-sm-6">
 						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Crear nota</span></a>
@@ -325,7 +325,7 @@ $(document).ready(function(){
 						<th>Id</th>
 						<th>Texto</th>
 						<th>Prioridad</th>
-						<th>Actions</th>
+						<th>Acción</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -338,7 +338,8 @@ $(document).ready(function(){
 							<th><?php echo $row['id']?> </th>
 							<th><?php echo $row['texto']?></th>
 							<th><?php echo $row['prioridad']?></th>
-							<th> <button type="button" class="btn btn-success editbtn">Editar</button></th>
+							<th> <button type="button" class="btn btn-secondary editbtn">Editar</button></th>
+							<th> <button type="button" class="btn btn-danger delbtn">Eliminar</button></th>
 							<!-- <th><a href="#editEmployeeModal" id="edit_" class="edit" name="editbtn" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a> -->
 							<!-- <a href="eliminar.php?" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></th> -->
 						</tr><?php
@@ -361,7 +362,7 @@ $(document).ready(function(){
 		</div>
 	</div>        
 </div>
-<div id="addEmployeeModal" class="modal fade">
+<div id="addEmployeeModal" class="modal">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<form action="insertar.php" method="POST">
@@ -372,11 +373,11 @@ $(document).ready(function(){
 				<div class="modal-body">					
 					<div class="form-group">
 						<label>Texto</label>
-						<input type="text" class="form-control" name="texto" required autofocus="" >
+						<input type="text" class="form-control" name="texto" placeholder="Texto de la nota" required autofocus="" >
 					</div>
 					<div class="form-group">
 						<label>Prioridad</label>
-						<input type="number" max="3" class="form-control" name="prioridad" required>
+						<input type="number" max="3" class="form-control" name="prioridad" placeholder="Ingrese la prioridad del 1 a 3" required>
 					</div>
 					
 									
@@ -391,8 +392,8 @@ $(document).ready(function(){
 </div>
 <!-- Edit Modal HTML -->
 
-<div id="editEmployeeModal" class="modal fade">
-	<div class="modal-dialog">
+<div id="editEmployeeModal" class="modal fade" role="dialog">
+	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<form action="editar.php" method="POST">
 				<div class="modal-header">						
@@ -403,11 +404,11 @@ $(document).ready(function(){
 					<input type="hidden" name="update_id" id="update_id">				
 					<div class="form-group">
 						<label>Texto</label>
-						<input type="text" class="form-control" name="texto" id="texto" required>
+						<input type="text" class="form-control" name="texto_edit" id="texto_edit"  required>
 					</div>
 					<div class="form-group">
 						<label>Prioridad</label>
-						<input type="number" class="form-control" name="prioridad" id="prioridad" required>
+						<input type="number" class="form-control" name="prioridad_edit" id="prioridad_edit"  required>
 					</div>
 									
 				</div>
@@ -420,26 +421,53 @@ $(document).ready(function(){
 	</div>
 </div>
 <!-- Delete Modal HTML -->
-<!-- <div id="deleteEmployeeModal" class="modal fade">
+<div id="deleteEmployeeModal" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<form>
+			<form action="delete.php" method="POST">
 				<div class="modal-header">						
 					<h4 class="modal-title">Borrar nota</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
-				<div class="modal-body">					
+				<div class="modal-body">
+				<input type="hidden" name="delete_id" id="delete_id">				
+
 					<p>Estas seguro de borrar el registro?</p>
 					<p class="text-warning"><small>No podra recuperar la nota!</small></p>
 				</div>
 				<div class="modal-footer">
-					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-					<input type="submit" class="btn btn-danger" value="Delete">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+					<input type="submit" class="btn btn-danger" value="Eliminar" name="deletenote">
 				</div>
 			</form>
 		</div>
 	</div>
-</div> -->
+</div>
+
+<script>
+	$(document).ready (function(){
+		$('.delbtn').on('click',function(){
+
+			$('#deleteEmployeeModal').modal('show');
+
+				$tr =$(this).closest('tr');
+				
+				var datos = $tr.children("th").map(function(){
+					return $(this).text();
+				}).get();
+
+				console.log(datos);
+
+				$('#delete_id').val(datos[0]);
+
+			
+				
+		});	
+	});
+</script>
+
+
+
 <script>
 	$(document).ready (function(){
 		$('.editbtn').on('click',function(){
@@ -453,12 +481,13 @@ $(document).ready(function(){
 				}).get();
 
 				console.log(datos);
-
-				$('#texto').val(datos[1]);
-				$('#prioridad').val(datos[2]);
+				$('#update_id').val(datos[0]);
+				$('#texto_edit').val(datos[1]);
+				$('#prioridad_edit').val(datos[2]);
 				
 		});	
 	});
 </script>
+
 </body>
 </html>

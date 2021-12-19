@@ -104,10 +104,6 @@
                                 <button type="submit" class="btn btn-primary">
                                     Iniciar sesion
                                 </button>
-
-                                                                    <a class="btn btn-link" href="http://localhost/notasya/public/password/reset">
-                                        Olvidaste tu contraseña?
-                                    </a>
                                                             </div>
                         </div>
                     </form>

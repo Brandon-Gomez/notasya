@@ -2,7 +2,6 @@
 <?php
 require 'conexion.php';
 
-
 if (isset($_POST['register'])) {    
     if (strlen($_POST['email']) >= 1 && strlen($_POST['password']) >=1 ) {
     $nombre = trim($_POST['nombre']);
