@@ -408,7 +408,7 @@ $(document).ready(function(){
 					</div>
 					<div class="form-group">
 						<label>Prioridad</label>
-						<input type="number" class="form-control" name="prioridad_edit" id="prioridad_edit"  required>
+						<input type="number" class="form-control" name="prioridad_edit" max="3" id="prioridad_edit"  required>
 					</div>
 									
 				</div>
@@ -460,14 +460,12 @@ $(document).ready(function(){
 
 				$('#delete_id').val(datos[0]);
 
-			
-				
 		});	
 	});
 </script>
 
 
-
+<!-- EDITAR -->
 <script>
 	$(document).ready (function(){
 		$('.editbtn').on('click',function(){

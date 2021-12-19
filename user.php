@@ -42,7 +42,7 @@ while ($usuario= $res->fetch_assoc()){
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -54,7 +54,7 @@ while ($usuario= $res->fetch_assoc()){
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="dashboard.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -154,11 +154,11 @@ while ($usuario= $res->fetch_assoc()){
             </div> -->
 
             <!-- Sidebar Message -->
-            <div class="sidebar-card d-none d-lg-flex">
+            <!-- <div class="sidebar-card d-none d-lg-flex">
                 <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
                 <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
                 <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div>
+            </div> -->
 
         </ul>
         <!-- End of Sidebar -->
@@ -167,7 +167,6 @@ while ($usuario= $res->fetch_assoc()){
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
-            <div id="content">
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -265,46 +264,20 @@ while ($usuario= $res->fetch_assoc()){
                     </div>
 
                     <!-- Content Row -->
-                    <div class="row">
 
                         <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Total usuarios</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php
-                                                $sql = "SELECT * FROM usuarios";
-                                                if ($result=mysqli_query($con,$sql)) {
-                                                    $rowcount=mysqli_num_rows($result);
-                                                    echo $rowcount; 
-                                                }
-                                                ?></div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-user fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                      
 
                         <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-6  mb-4">
+                        <!-- <div class="col-xl-6  mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Total notas</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php
-                                                $sql = "SELECT * FROM notas";
-                                                if ($result=mysqli_query($con,$sql)) {
-                                                    $rowcount=mysqli_num_rows($result);
-                                                    echo $rowcount; 
-                                                }?></div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                               </div>
                                         </div>
                                         <div class="col-auto">
                                         <i class="fas fa-sticky-note fa-2x text-gray-300"></i>
@@ -312,7 +285,7 @@ while ($usuario= $res->fetch_assoc()){
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- Earnings (Monthly) Card Example -->
                         <!-- <div class="col-xl-3 col-md-6 mb-4">
@@ -370,7 +343,7 @@ while ($usuario= $res->fetch_assoc()){
                     <div class="row">
 
                         <!-- Content Column -->
-                        <div class="col-lg-6 mb-4">
+                        <div class="col-lg-12 mb-4">
 
                             <!-- Project Card Example -->
                             <div class="card shadow mb-4">
@@ -387,6 +360,8 @@ while ($usuario= $res->fetch_assoc()){
 						<th>Email</th>
 						<!-- <th>Contraseña</th> -->
 						<th>Rol id</th>
+						<th>Acciones</th>
+						<th></th>
 						<!-- <th>Acción</th> -->
 					</tr>
 				</thead>
@@ -402,6 +377,8 @@ while ($usuario= $res->fetch_assoc()){
 							<th><?php echo $row['usuario']?></th>
 							<!-- <th><?php echo $row['password']?></th> -->
 							<th><?php echo $row['rol_id']?></th>
+                            <th> <button type="button" class="btn btn-secondary editbtn">Editar</button></th>
+							<th> <button type="button" class="btn btn-danger delbtn">Eliminar</button></th>
 							<!-- <th> <button type="button" class="btn btn-secondary editbtn">Editar</button></th>
 							<th> <button type="button" class="btn btn-danger delbtn">Eliminar</button></th> -->
 							<!-- <th><a href="#editEmployeeModal" id="edit_" class="edit" name="editbtn" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a> -->
@@ -411,10 +388,68 @@ while ($usuario= $res->fetch_assoc()){
 				
 				</tbody>
 			</table>
-                            </div>
+            <!-- EDITAR -->
+            <div id="editEmployeeModal" class="modal fade" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<form action="editar_user.php" method="POST">
+				<div class="modal-header">						
+					<h4 class="modal-title">Editar usuario</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">
+					<input type="hidden" name="update_id" id="update_id">				
+				
+					<div class="form-group">
+						<label>Nombre</label>
+						<input type="text" class="form-control" name="nombre_edit" id="nombre_edit"  required>
+					</div>
+                    <div class="form-group">
+						<label>Email</label>
+						<input type="email" class="form-control" name="email_edit" id="email_edit"  required>
+					</div>
+                    <div class="form-group">
+						<label>Rol id</label>
+						<input type="number" class="form-control" name="rol_edit" id="rol_edit"  required>
+					</div>
+                    
+                    
+									
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+					<input type="submit" class="btn btn-info edituser" value="Guardar" name="edituser">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- Delete Modal HTML -->
+<div id="deleteEmployeeModal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form action="delete_user.php" method="POST">
+				<div class="modal-header">						
+					<h4 class="modal-title">Eliminar usuario</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">
+				<input type="hidden" name="delete_id" id="delete_id">				
+
+					<p>Estas seguro de eliminar el usuario?</p>
+					<p class="text-warning"><small>No podra recuperarlo!</small></p>
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+					<input type="submit" class="btn btn-danger" value="Eliminar" name="deleteuser">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
 
                             <!-- Color System -->
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-lg-6 mb-4">
                                     <div class="card bg-primary text-white shadow">
                                         <div class="card-body">
@@ -481,83 +516,18 @@ while ($usuario= $res->fetch_assoc()){
                                 </div>
                             </div>
 
-                        </div>
+                        </div> -->
 
-                        <div class="col-lg-6 mb-4">
-
-                            <!-- Illustrations -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Notas</h6>
-                                </div>
-                                <table class="table table-striped table-hover">
-				<thead>
-					<tr>
-					
-						<th>ID</th>
-						<th>Texto</th>
-						<th>Fecha</th>
-						<th>Prioridad</th>
-						<th>Usuario id</th>
-						<!-- <th>Acción</th> -->
-					</tr>
-				</thead>
-				<tbody>
-					<?php
-					$sql = "SELECT * FROM notas";
-					$res = mysqli_query($con,$sql);
-					
-					while($row = $res->fetch_assoc()) {?>
-						<tr>
-							<th><?php echo $row['id']?> </th>
-							<th><?php echo $row['texto']?></th>
-							<th><?php echo $row['fecha']?></th>
-							<th><?php echo $row['prioridad']?></th>
-							<th><?php echo $row['usuario_id']?></th>
-							<!-- <th> <button type="button" class="btn btn-secondary editbtn">Editar</button></th>
-							<th> <button type="button" class="btn btn-danger delbtn">Eliminar</button></th> -->
-							<!-- <th><a href="#editEmployeeModal" id="edit_" class="edit" name="editbtn" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a> -->
-							<!-- <a href="eliminar.php?" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></th> -->
-						</tr><?php
-					};?>
-				
-				</tbody>
-			</table>
-                            </div>
-
-                            <!-- Approach -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
-                                        CSS bloat and poor page performance. Custom CSS classes are used to create
-                                        custom components and custom utility classes.</p>
-                                    <p class="mb-0">Before working with this theme, you should become familiar with the
-                                        Bootstrap framework, especially the utility classes.</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
+                     
                 <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
-                    </div>
-                </div>
-            </footer>
+            
             <!-- End of Footer -->
-
+           
         </div>
         <!-- End of Content Wrapper -->
 
@@ -575,15 +545,15 @@ while ($usuario= $res->fetch_assoc()){
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Cerrar sesion?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Selecciona "Salir" para terminar tu sesion.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="salir.php">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" href="salir.php">Salir</a>
                 </div>
             </div>
         </div>
@@ -605,6 +575,49 @@ while ($usuario= $res->fetch_assoc()){
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+    <script>
+        // EDITAR
+	$(document).ready (function(){
+		$('.editbtn').on('click',function(){
+
+			$('#editEmployeeModal').modal('show');
+
+				$tr =$(this).closest('tr');
+				
+				var datos = $tr.children("th").map(function(){
+					return $(this).text();
+				}).get();
+
+				console.log(datos);
+				$('#update_id').val(datos[0]);
+				$('#nombre_edit').val(datos[1]);
+				$('#email_edit').val(datos[2]);
+				$('#rol_edit').val(datos[3]);
+				
+		});	
+	});
+</script>
+    <!-- BORRAR -->
+    <script>
+	$(document).ready (function(){
+		$('.delbtn').on('click',function(){
+
+			$('#deleteEmployeeModal').modal('show');
+
+				$tr =$(this).closest('tr');
+				
+				var datos = $tr.children("th").map(function(){
+					return $(this).text();
+				}).get();
+
+				console.log(datos);
+
+				$('#delete_id').val(datos[0]);
+
+		});	
+	});
+</script>
+           </div>    
 
 </body>
 

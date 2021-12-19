@@ -3,16 +3,16 @@
     require "seguridad.php";
     
 
-    if (isset($_POST['deletenote'])) {  
+    if (isset($_POST['deleteuser'])) {  
 
         $id = $_POST['delete_id'];
       
-    
-        $consulta = "DELETE FROM `notas` WHERE id ='$id'";
+        //registrar nuevo
+        $consulta = "DELETE FROM usuarios WHERE id ='$id'";
         $resultado = mysqli_query($con,$consulta); 
-    
+
         if ($resultado) {
-            header("location:crud.php");   
+            header("location:user.php");   
         }
         else {
             echo'<script type="text/javascript">
