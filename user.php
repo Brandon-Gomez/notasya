@@ -456,7 +456,7 @@ while ($usuario= $res->fetch_assoc()){
 					</div>
                     <div class="form-group">
 						<label>Contraseña</label>
-						<input type="number" class="form-control" name="contraseña_add" id="Contraseña_add"  placeholder="Ingrese contraseña" required>
+						<input type="text" class="form-control" name="contraseña_add" id="Contraseña_add"  placeholder="Ingrese contraseña" required>
 					</div>
                     <div class="form-group">
 						<label>Rol id</label>
