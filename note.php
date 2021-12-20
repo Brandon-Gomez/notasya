@@ -84,7 +84,7 @@ while ($usuario= $res->fetch_assoc()){
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-           
+       
 
             <!-- Divider -->
             <!-- <hr class="sidebar-divider"> -->
@@ -151,7 +151,6 @@ while ($usuario= $res->fetch_assoc()){
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
-            <div id="content">
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -248,46 +247,20 @@ while ($usuario= $res->fetch_assoc()){
                     </div>
 
                     <!-- Content Row -->
-                    <div class="row">
 
                         <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Total usuarios</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php
-                                                $sql = "SELECT * FROM usuarios";
-                                                if ($result=mysqli_query($con,$sql)) {
-                                                    $rowcount=mysqli_num_rows($result);
-                                                    echo $rowcount; 
-                                                }
-                                                ?></div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-user fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                      
 
                         <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-6  mb-4">
+                        <!-- <div class="col-xl-6  mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Total notas</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php
-                                                $sql = "SELECT * FROM notas";
-                                                if ($result=mysqli_query($con,$sql)) {
-                                                    $rowcount=mysqli_num_rows($result);
-                                                    echo $rowcount; 
-                                                }?></div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                               </div>
                                         </div>
                                         <div class="col-auto">
                                         <i class="fas fa-sticky-note fa-2x text-gray-300"></i>
@@ -295,7 +268,7 @@ while ($usuario= $res->fetch_assoc()){
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- Earnings (Monthly) Card Example -->
                         <!-- <div class="col-xl-3 col-md-6 mb-4">
@@ -353,13 +326,17 @@ while ($usuario= $res->fetch_assoc()){
                     <div class="row">
 
                         <!-- Content Column -->
-                        <div class="col-lg-6 mb-4">
+                        <div class="col-lg-12 mb-4">
 
                             <!-- Project Card Example -->
                             <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Usuarios</h6>
-                                </div>
+                            <div class="card-header py-3" style="display: flex;justify-content: space-between;">
+
+                                    
+                                    <h6 class="m-0 font-weight-bold text-primary" style="align-self:center">Notas</h6> <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="fas-fa user"></i> <span>Crear nota</span></a>
+                                </div><div class="col-sm-6">
+						
+					</div>
                                 
 
                                 <table class="table table-striped table-hover">
@@ -367,25 +344,31 @@ while ($usuario= $res->fetch_assoc()){
 					<tr>
 					
 						<th>ID</th>
-						<th>Nombre</th>
-						<th>Email</th>
+						<th>Texto</th>
+						<th>Fecha</th>
 						<!-- <th>Contraseña</th> -->
-						<th>Rol id</th>
+						<th>Prioridad</th>
+						<th>Usuario id</th>
+						<th>Acciones</th>
+						<th></th>
 						<!-- <th>Acción</th> -->
 					</tr>
 				</thead>
 				<tbody>
 					<?php
-					$sql = "SELECT * FROM usuarios";
+					$sql = "SELECT * FROM notas";
 					$res = mysqli_query($con,$sql);
 					
 					while($row = $res->fetch_assoc()) {?>
 						<tr>
 							<th><?php echo $row['id']?> </th>
-							<th><?php echo $row['nombre']?></th>
-							<th><?php echo $row['usuario']?></th>
-							<!-- <th><?php echo $row['password']?></th> -->
-							<th><?php echo $row['rol_id']?></th>
+							<th><?php echo $row['texto']?></th>
+							<th><?php echo $row['fecha']?></th>
+							<!-- <th><echo $row'password'</th> -->
+							<th><?php echo $row['prioridad']?></th>
+							<th><?php echo $row['usuario_id']?></th>
+                            <th> <button type="button" class="btn btn-secondary editbtn">Editar</button></th>
+							<th> <button type="button" class="btn btn-danger delbtn">Eliminar</button></th>
 							<!-- <th> <button type="button" class="btn btn-secondary editbtn">Editar</button></th>
 							<th> <button type="button" class="btn btn-danger delbtn">Eliminar</button></th> -->
 							<!-- <th><a href="#editEmployeeModal" id="edit_" class="edit" name="editbtn" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a> -->
@@ -395,10 +378,111 @@ while ($usuario= $res->fetch_assoc()){
 				
 				</tbody>
 			</table>
-                            </div>
+            <!-- EDITAR -->
+            <div id="editEmployeeModal" class="modal fade" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<form action="editar_note.php" method="POST">
+				<div class="modal-header">						
+					<h4 class="modal-title">Editar nota</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">
+					<input type="hidden" name="edit_id" id="edit_id">	
+
+					<div class="form-group">
+						<label>Texto</label>
+						<input type="text" class="form-control" name="texto_edit" id="texto_edit"  required>
+					</div>
+                    <div class="form-group">
+						<label>Prioridad</label>
+						<input type="number" max="3" class="form-control" name="prioridad_edit" id="prioridad_edit"  required>
+					</div>
+                    <div class="form-group">
+						<label>Fecha</label>
+						<input disabled type="text" class="form-control" name="fecha_edit" id="fecha_edit"  required>
+					</div>
+                    
+                    <div class="form-group">
+						<label>Usuario id</label>
+						<input disabled type="number" class="form-control" name="user_edit" id="user_edit"  required>
+					</div>
+                    
+                    
+									
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+					<input type="submit" class="btn btn-info edituser" value="Guardar" name="editnote">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- Delete Modal HTML -->
+<div id="deleteEmployeeModal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form action="delete_note.php" method="POST">
+				<div class="modal-header">						
+					<h4 class="modal-title">Eliminar usuario</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">
+				<input type="hidden" name="delete_id" id="delete_id">				
+
+					<p>Estas seguro de eliminar el usuario?</p>
+					<p class="text-warning"><small>No podra recuperarlo!</small></p>
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+					<input type="submit" class="btn btn-danger" value="Eliminar" name="deletenote">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- AGREGAR -->
+<div id="addEmployeeModal" class="modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form action="insertar_user.php" method="POST">
+				<div class="modal-header">						
+					<h4 class="modal-title">Agregar usuario</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">					
+					<div class="form-group">
+						<label>Nombre</label>
+						<input type="text" class="form-control" name="nombre_add" id="Nombre_add" placeholder="Ingrese el nombre" required autofocus="" >
+					</div>
+					<div class="form-group">
+						<label>Email</label>
+						<input type="email" class="form-control" name="email_add" id="email_add" placeholder="Ingrese correo" required>
+					</div>
+                    <div class="form-group">
+						<label>Contraseña</label>
+						<input type="number" class="form-control" name="contraseña_add" id="Contraseña_add"  placeholder="Ingrese contraseña" required>
+					</div>
+                    <div class="form-group">
+						<label>Rol id</label>
+						<input  type="number" max="3" class="form-control" name="rol_add" id="rol_add" placeholder="Ingrese el rol" required>
+					</div>
+                    
+					
+									
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+					<input type="submit" class="btn btn-success" value="Agregar" name="adduser">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
 
                             <!-- Color System -->
-                            <div class="row" style="visibility: hidden">>
+                            <!-- <div class="row">
                                 <div class="col-lg-6 mb-4">
                                     <div class="card bg-primary text-white shadow">
                                         <div class="card-body">
@@ -465,70 +549,18 @@ while ($usuario= $res->fetch_assoc()){
                                 </div>
                             </div>
 
-                        </div>
+                        </div> -->
 
-                        <div class="col-lg-6 mb-4">
-
-                            <!-- Illustrations -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Notas</h6>
-                                </div>
-                                <table class="table table-striped table-hover">
-				<thead>
-					<tr>
-					
-						<th>ID</th>
-						<th>Texto</th>
-						<th>Fecha</th>
-						<th>Prioridad</th>
-						<th>Usuario id</th>
-						<!-- <th>Acción</th> -->
-					</tr>
-				</thead>
-				<tbody>
-					<?php
-					$sql = "SELECT * FROM notas";
-					$res = mysqli_query($con,$sql);
-					
-					while($row = $res->fetch_assoc()) {?>
-						<tr>
-							<th><?php echo $row['id']?> </th>
-							<th><?php echo $row['texto']?></th>
-							<th><?php echo $row['fecha']?></th>
-							<th><?php echo $row['prioridad']?></th>
-							<th><?php echo $row['usuario_id']?></th>
-							<!-- <th> <button type="button" class="btn btn-secondary editbtn">Editar</button></th>
-							<th> <button type="button" class="btn btn-danger delbtn">Eliminar</button></th> -->
-							<!-- <th><a href="#editEmployeeModal" id="edit_" class="edit" name="editbtn" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a> -->
-							<!-- <a href="eliminar.php?" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></th> -->
-						</tr><?php
-					};?>
-				
-				</tbody>
-			</table>
-                            </div>
-
-                           
-
-                        </div>
-                    </div>
-
-                </div>
+                     
                 <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                    <p>&copy; 2021 NotasYa. Reservados todos los derechos. Designed By <span>Brandon Gomez TPS 109</span>                    </div>
-                </div>
-            </footer>
+            
             <!-- End of Footer -->
-
+           
         </div>
         <!-- End of Content Wrapper -->
 
@@ -576,6 +608,50 @@ while ($usuario= $res->fetch_assoc()){
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+    <script>
+        // EDITAR
+	$(document).ready (function(){
+		$('.editbtn').on('click',function(){
+
+			$('#editEmployeeModal').modal('show');
+
+				$tr =$(this).closest('tr');
+				
+				var datos = $tr.children("th").map(function(){
+					return $(this).text();
+				}).get();
+
+				console.log(datos);
+				$('#edit_id').val(datos[0]);    
+				$('#texto_edit').val(datos[1]);
+				$('#fecha_edit').val(datos[2]);
+				$('#prioridad_edit').val(datos[3]);
+				$('#user_edit').val(datos[4]);
+				
+		});	
+	});
+</script>
+    <!-- BORRAR -->
+    <script>
+	$(document).ready (function(){
+		$('.delbtn').on('click',function(){
+
+			$('#deleteEmployeeModal').modal('show');
+
+				$tr =$(this).closest('tr');
+				
+				var datos = $tr.children("th").map(function(){
+					return $(this).text();
+				}).get();
+
+				console.log(datos);
+
+				$('#delete_id').val(datos[0]);
+
+		});	
+	});
+</script>
+           </div>    
 
 </body>
 

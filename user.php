@@ -84,23 +84,7 @@ while ($usuario= $res->fetch_assoc()){
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Notas</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom notas:</h6>
-                        <a class="collapse-item" href="#addnote">Agregar nota</a>
-                        <a class="collapse-item" href="#editnote">Editar nota</a>
-                        <a class="collapse-item" href="#deletenote">Borrar nota</a>
-                        <!-- <a class="collapse-item" href="utilities-other.html">Other</a> -->
-                    </div>
-                </div>
-            </li>
+       
 
             <!-- Divider -->
             <!-- <hr class="sidebar-divider"> -->
@@ -259,8 +243,8 @@ while ($usuario= $res->fetch_assoc()){
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
                     </div>
 
                     <!-- Content Row -->
@@ -350,7 +334,7 @@ while ($usuario= $res->fetch_assoc()){
                             <div class="card-header py-3" style="display: flex;justify-content: space-between;">
 
                                     
-                                    <h6 class="m-0 font-weight-bold text-primary" style="align-self:center">Usuarios</h6> <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Crear usuario</span></a>
+                                    <h6 class="m-0 font-weight-bold text-primary" style="align-self:center">Usuarios</h6> <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="fas-fa user"></i> <span>Crear usuario</span></a>
                                 </div><div class="col-sm-6">
 						
 					</div>
